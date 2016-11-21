@@ -11,7 +11,7 @@ class PdoImage{
             
             if (is_a($objImageInterne, ImageInterne::class())){
                 
-                $objImageInterne = new ImageInterne($objImageInt->get_strCodeImage(), $objImageInt->get_strLienFichier())
+                $objImageInterne = new ImageInterne($objImageInt->get_strCodeImage(), $objImageInt->get_strLienFichier());
                 
             }         
         } catch (Exception $ex) {
