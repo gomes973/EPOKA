@@ -2,6 +2,7 @@
 <html>
 
     <script>
+        //Gomes Dylan
         function choixTypeImage(choix) {
             if (choix == 1) {
                 $.ajax({
@@ -74,6 +75,7 @@
                             ?>
                         </select>     
                     </div>
+                    <!--Gomes Dylan -->
                     <div class="form-group col-md-6">
                         <label for="choixTypeIMG">Choisir chemin image</label>
                         <select name="type" class="form-control" id="choixTypeIMG" onchange="choixTypeImage(this.value)">
@@ -82,6 +84,7 @@
                             <option value="2">Externe</option>
                         </select>
                     </div>
+                    <!--Fin Gomes Dylan -->
                     <div class="col-md-6" id="img"></div>
                     <div class="col-md-12">
                         <br/>

@@ -1,4 +1,5 @@
 <?php
+//gomes Dylan
 include '../Passerelles/pdoImage.php';
 include '../Classes/Image.php';
 include '../Classes/ImageInterne.php';

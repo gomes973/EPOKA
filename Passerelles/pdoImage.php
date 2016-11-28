@@ -1,5 +1,6 @@
 <?php
 
+//Gomes Dylan
 class PdoImage {
 
     /**
@@ -34,8 +35,12 @@ class PdoImage {
         }
     }
 
+    /**
+     * Recupere les images Internes
+     * @return collection
+     */
     public static function getImagesInternes() {
-        try{
+        try {
             $objPdo = PdoConnexion::getPdoConnexion();
 
             $sql = "select * from IMAGEINTERNE";
@@ -49,28 +54,31 @@ class PdoImage {
                 $col->add($obj);
             }
             return $col->getAll();
-        }
-    catch (Exception $ex){
+        } catch (Exception $ex) {
             echo $ex->getMessage();
             echo 'Aucune Image Interne';
-    }
+        }
     }
 
+    /**
+     * Retourne une collection d'images ecternes
+     * @return Collection   
+     */
     public static function getImagesExternes() {
-        try{
-        $objPdo = PdoConnexion::getPdoConnexion();
-        $sql = "select * from IMAGEEXTERNE";
-        $res = $objPdo->query($sql);
-        $res = $res->fetchAll();
-        
-        $col = new Collection();
-        
-        foreach ($res as $value) {
-            $obj = new ImageExterne($value['IDIMAGEEXTERNE'], $value['PRIX'], $value['CODEBANQUE']);
-            $col->add($obj);
-        }
-        return $col->getAll();
-        }  catch (Exception $ex){
+        try {
+            $objPdo = PdoConnexion::getPdoConnexion();
+            $sql = "select * from IMAGEEXTERNE";
+            $res = $objPdo->query($sql);
+            $res = $res->fetchAll();
+
+            $col = new Collection();
+
+            foreach ($res as $value) {
+                $obj = new ImageExterne($value['IDIMAGEEXTERNE'], $value['PRIX'], $value['CODEBANQUE']);
+                $col->add($obj);
+            }
+            return $col->getAll();
+        } catch (Exception $ex) {
             echo $ex->getMessage();
             echo 'Aucune image externe';
         }
