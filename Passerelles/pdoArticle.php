@@ -13,7 +13,7 @@ class pdoArticle {
      * @param date $datemiseenligne La date de mise en ligne de l'article
      * @return boolean  True si l'ajoute a été effectué, False si l'ajout a échoué. 
      */
-    public static function insertArticle($numRubrique, $matricule, $titreArticle, $lienfichiercontenu, $chapeau, $longueur, $datemiseenligne) {
+    public static function insertArticle($numRubrique, $matricule, $titreArticle, $lienfichiercontenu, $chapeau, $longueur, $datemiseenligne, $urlImgInterne, $urlImgExterne) {
 
         try {
             $objPdo = PdoConnexion::getPdoConnexion();
@@ -21,12 +21,11 @@ class pdoArticle {
             $matricule = htmlentities($matricule, ENT_QUOTES);
             $titreArticle = htmlentities($titreArticle, ENT_QUOTES);
             $chapeau = htmlentities($chapeau, ENT_QUOTES);
-            $req = "INSERT INTO Article (NUMRUBRIQUE,MATRICULE,TITREARTICLE,LIENFICHIERCONTENU,CHAPEAU,LONGUEUR,DATEMISEENLIGNE) VALUES ($numRubrique, '$matricule', '$titreArticle', '$lienfichiercontenu', '$chapeau', $longueur, $datemiseenligne)";
+            $req = "INSERT INTO Article (NUMRUBRIQUE,MATRICULE,TITREARTICLE,LIENFICHIERCONTENU,CHAPEAU,LONGUEUR,DATEMISEENLIGNE, CODEIMAGEINTERNE, CODEIMAGEEXTERNE) VALUES ($numRubrique, '$matricule', '$titreArticle', '$lienfichiercontenu', '$chapeau', $longueur, $datemiseenligne, $urlImgInterne, $urlImgExterne)";
             $objPdo->exec($req);
             return true;
             
         } catch (Exception $ex) {
-            
             return false;
         }
     }

@@ -64,6 +64,5 @@ foreach ($listeRubriquesRevue as $value) {
         $article->appendChild($signature);
     }
 }
-
 echo 'xml';
 $doc->save("Maquette.xml");

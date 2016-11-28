@@ -1,6 +1,5 @@
 <?php
 
-use Image;
 
 final class ImageInterne extends Image {
 

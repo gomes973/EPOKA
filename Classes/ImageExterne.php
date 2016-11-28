@@ -1,7 +1,5 @@
 <?php
 
-use Image;
-
 final class ImageExterne extends Image{
     
     private $_intPrix;

@@ -25,7 +25,21 @@ switch ($action) {
             $pigiste = $_REQUEST['pigiste'];
             $adresse = $_REQUEST['adresse'];
             $rubrique = $_REQUEST['rubrique'];
-            $res = pdoArticle::insertArticle($rubrique, $pigiste, $titre, $adresse, $chapeau, $longueur, date("Y-m-d"));
+            if (isset($_REQUEST['urlImgInterne'])){
+               $codeImageInterne = $_REQUEST['urlImgInterne'];   
+               $codeImageInterne = "'".$codeImageInterne."'";
+            }
+            else {
+                $codeImageInterne  = "NULL";  
+            }
+            if (isset($_REQUEST['urlImgExterne'])){
+                $codeImageExterne = $_REQUEST['urlImgExterne'];
+                $codeImageExterne = "'".$codeImageExterne."'";
+            }
+            else {
+                $codeImageExterne = "NULL";    
+            }
+            $res = pdoArticle::insertArticle($rubrique, $pigiste, $titre, $adresse, $chapeau, $longueur, date("Y-m-d"), $codeImageInterne, $codeImageExterne);
             //On notifie l'utilisateur de la réussite ou de l'échec de l'insertion
             if($res){
                 $messageSucces = "Insertion réussie";                
