@@ -10,11 +10,11 @@ include '../Librairies/Collection.php';
     if ($_POST['choixIMG'] == 1){
 ?>
 <div class="form-group">
-    <label>Selectionner adresse fichier</label>
-    <select name="urlImgInterne" class="form-control">
+    <label for="banqueImg">Selectionner adresse fichier</label>
+    <select name="urlImgInterne" class="form-control" id="banqueImg">
         <option value="0"></option>
         <?php foreach ($colImagInternes as $value) {?>
-        <option  value="<?php echo $value->get_strCodeImage();?>"><?php echo $value->get_strCodeImage();?></option>
+        <option value="<?php echo $value->get_strCodeImage();?>" data-img-src="<?php echo $value->get_strLienFichier();?>"><?php echo $value->get_strCodeImage();?></option>
         <?php }}?>
     </select>
 </div>

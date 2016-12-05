@@ -29,7 +29,6 @@ class PdoConnexion {
     private function __construct() {
         try {
             PdoConnexion::$objPdo = new PDO(PdoConnexion::$strServeur . ';' . PdoConnexion::$strBdd, PdoConnexion::$strUser, PdoConnexion::$strMdp);
-            PdoConnexion::$objPdo->query("SET CHARACTER SET utf8");
             PdoConnexion::$objPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             echo 'Echec lors de la connexion ! ' . $e->getMessage();
@@ -51,7 +50,7 @@ class PdoConnexion {
      */
     public static function getPdoConnexion() {
         if (PdoConnexion::$objPdoConnexion == null) {
-            PdoConnexion::$objPdoConnexion = new PdoConnexion();
+             PdoConnexion::$objPdoConnexion = new PdoConnexion();
         }
         return PdoConnexion::$objPdo;
     }

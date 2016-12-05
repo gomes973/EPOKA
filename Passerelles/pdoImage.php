@@ -83,5 +83,14 @@ class PdoImage {
             echo 'Aucune image externe';
         }
     }
+    
+    public static function getImageExterne($id){
+        $objPdo = PdoConnexion::getPdoConnexion();
+        $sql = "select URLIMAGE from IMAGEEXTERNE where IDIMAGEEXTERNE = " . $id;
+        $res = $objPdo->query($sql);
+        $res = $res->fetch();
+        
+        return $res['URLIMAGE'];
+    }
 
 }

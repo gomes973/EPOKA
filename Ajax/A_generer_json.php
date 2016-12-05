@@ -62,6 +62,9 @@ foreach ($listeRubriquesRevue as $value) {
         $article->appendChild($lienCont);
         $signature = $doc->createElement("Signature", utf8_encode($unArticle->getPigiste()->getNom()) . " " . utf8_encode($unArticle->getPigiste()->getPrenom()));
         $article->appendChild($signature);
+        $CODEIMAGE = $doc->createElement("CODEIMAGEINTERNE", utf8_encode($unArticle->getObjImage()->get_strCodeImage()));
+        $article->appendChild($CODEIMAGE);
+        
     }
 }
 

@@ -4,6 +4,7 @@ final class ImageExterne extends Image{
     
     private $_intPrix;
     private $_objBaqnue;
+    private $_strUrlImage;
 
     /**
      * Constrcuetur de la classe
@@ -12,10 +13,11 @@ final class ImageExterne extends Image{
      * @param type string
      * @param type string
      */
-    function __construct($strCodeImage, $_intPrix, $_objBaqnue) {
+    function __construct($strCodeImage, $_intPrix, $_objBaqnue, $_urlImage) {
         $this->_strCodeImage = $strCodeImage;
         $this->_intPrix = $_intPrix;
         $this->_objBaqnue = $_objBaqnue;
+        $this->_strUrlImage = $_urlImage;
     }
 
     /**
@@ -64,6 +66,15 @@ final class ImageExterne extends Image{
     function set_objBaqnue($_objBaqnue) {
         $this->_objBaqnue = $_objBaqnue;
     }
+
+    function get_strUrlImage() {
+        return $this->_strUrlImage;
+    }
+
+    function set_strUrlImage($_strUrlImage) {
+        $this->_strUrlImage = $_strUrlImage;
+    }
+
 
 
 }

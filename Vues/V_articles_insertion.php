@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
     <script>
         //Gomes Dylan
         function choixTypeImage(choix) {
@@ -20,7 +19,7 @@
             }
             if (choix == 2) {
                 $.ajax({
-                    url: "ajax/A_listeImageExterne.php",
+                    url: "ajax/A_listeBanque.php",
                     type: "POST",
                     dataType: "html",
                     data: {choixIMG: choix},
@@ -32,6 +31,20 @@
                     }
                 });
             }
+        }
+        function afficheImgExt(banque){
+                $.ajax({
+                    url: "ajax/A_listeImageExterne.php",
+                    type: "POST",
+                    dataType: "html",
+                    data: {choixBanque: banque},
+                    success: function (data) {
+                        $("#IMGBANQUE").html(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
+                });
         }
     </script>
     <body>   
@@ -70,7 +83,7 @@
                         <select name="rubrique" class="form-control">
                             <?php
                             foreach ($tabRubriques as $val) {
-                                echo '<option value="' . $val->getNumRubrique() . '">' . $val->getTitreRubrique() . '</option>';
+                                echo '<option value="' . $val->getNumRubrique() . '">' . utf8_encode($val->getTitreRubrique()) . '</option>';
                             }
                             ?>
                         </select>     
@@ -84,8 +97,12 @@
                             <option value="2">Externe</option>
                         </select>
                     </div>
-                    <!--Fin Gomes Dylan -->
                     <div class="col-md-6" id="img"></div>
+                    
+                    <div id="lesImg"></div>
+                    
+                    <div id="IMGBANQUE" class="form-group col-md-6"></div>
+                    <!--Fin Gomes Dylan -->
                     <div class="col-md-12">
                         <br/>
                         <input class="btn btn-default" type="submit" value="Valider" /> <input class="btn btn-default" type="reset" value="Annuler" />
